@@ -44,7 +44,7 @@ bpf.attach_kretprobe(event="bpf_prog_load",
 
 
 try:
-    sleep(300)
+    sleep(30)
 except KeyboardInterrupt:
     signal.signal(signal.SIGINT, signal_ignore)
 

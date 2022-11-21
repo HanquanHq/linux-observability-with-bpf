@@ -50,7 +50,7 @@ bpf.attach_perf_event(ev_type=PerfType.SOFTWARE,
 
 exiting = 0
 try:
-    sleep(300)
+    sleep(200)
 except KeyboardInterrupt:
     exiting = 1
     signal.signal(signal.SIGINT, signal_ignore)

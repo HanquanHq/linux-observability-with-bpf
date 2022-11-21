@@ -1,7 +1,13 @@
 from bcc import BPF, USDT
 
 bpf_source = """
+#ifdef asm_inline
+#undef asm_inline
+#define asm_inline asm
+#endif
+
 #include <uapi/linux/ptrace.h>
+
 int trace_binary_exec(struct pt_regs *ctx) {
   u64 pid = bpf_get_current_pid_tgid();
   bpf_trace_printk("New hello_usdt process running with PID: %d\\n", pid);

@@ -1,0 +1,6 @@
+{
+    "files.associations": {
+        "sdt.h": "c"
+    },
+    "git.ignoreLimitWarning": true
+}
