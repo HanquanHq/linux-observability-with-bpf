@@ -3,6 +3,7 @@ from scapy.all import Ether, IP, raw, TCP, UDP
 
 import ctypes
 import unittest
+import time
 
 
 class XDPExampleTestCase(unittest.TestCase):
@@ -19,7 +20,7 @@ class XDPExampleTestCase(unittest.TestCase):
         test_retval = ctypes.c_uint32()
         duration = ctypes.c_uint32()
         repeat = 1
-        ret = libbcc.lib.bpf_prog_test_run(self.bpf_function.fd,
+        ret = libbcc.lib.bpf_prog_test_run(self.bpf_function.fd, # 因为是bpf_prog_test_run，所以不会对真实环境有影响，使用ip a命令也看不到interface上有任何xdp程序。
                                            repeat,
                                            ctypes.byref(given_packet),
                                            size,

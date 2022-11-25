@@ -1,5 +1,10 @@
 #define KBUILD_MODNAME "kmyprogram"
 
+#ifdef asm_inline
+#undef asm_inline
+#define asm_inline asm
+#endif
+
 #include <linux/bpf.h>
 #include <linux/if_ether.h>
 #include <linux/tcp.h>
