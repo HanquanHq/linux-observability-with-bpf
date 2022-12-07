@@ -21,9 +21,9 @@ int myprogram(struct xdp_md *ctx) {
     return XDP_DROP;
   }
 
-  if (ip->protocol == IPPROTO_TCP) {
-    return XDP_DROP;
-  }
+  // if (ip->protocol == IPPROTO_TCP) {
+  //   return XDP_DROP;
+  // }
 
   return XDP_PASS;
 }

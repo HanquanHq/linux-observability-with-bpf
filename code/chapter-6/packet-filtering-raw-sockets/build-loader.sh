@@ -1,4 +1,4 @@
-KERNEL_SRCTREE=$1
+KERNEL_SRCTREE="/kernel-src/"
 LIBBPF=${KERNEL_SRCTREE}/tools/lib/bpf/libbpf.a
 clang -o loader-bin -I${KERNEL_SRCTREE}/tools/lib/bpf/ \
   -I${KERNEL_SRCTREE}/tools/lib -I${KERNEL_SRCTREE}/tools/include \

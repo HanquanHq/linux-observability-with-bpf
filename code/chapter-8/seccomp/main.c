@@ -35,6 +35,9 @@ int main(int argc, char const *argv[]) {
     perror("prctl(NO_NEW_PRIVS)");
     return 1;
   }
-  install_filter(__NR_write, AUDIT_ARCH_X86_64, EPERM);
+  install_filter(__NR_write, AUDIT_ARCH_X86_64, EPERM); // 注释掉这个，就能看到输出，说明filter确实是生效的
   return system(argv[1]);
 }
+
+// clang main.c -o filter-write
+// ./filter-write "ls -la"

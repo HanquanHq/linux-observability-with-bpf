@@ -1,0 +1,41 @@
+digraph "DOT graph for eBPF program" {
+subgraph "cluster_0" {
+	style="dashed";
+	color="black";
+	label="func_0 ()";
+	fn_0_bb_0 [shape=Mdiamond,style=filled,label="ENTRY"];
+
+	fn_0_bb_2 [shape=record,style=filled,label="{   0: (bf) r6 = r1\l\
+ |    1: (b7) r1 = 0\l\
+ |    2: (7b) *(u64 *)(r10 -8) = r1\l\
+ |    3: (7b) *(u64 *)(r10 -16) = r1\l\
+ |    4: (7b) *(u64 *)(r10 -24) = r1\l\
+ |    5: (7b) *(u64 *)(r10 -32) = r1\l\
+ |    6: (85) call bpf_get_current_pid_tgid#99344\l\
+ |    7: (63) *(u32 *)(r10 -32) = r0\l\
+ |    8: (85) call bpf_ktime_get_ns#99408\l\
+ |    9: (7b) *(u64 *)(r10 -24) = r0\l\
+ |   10: (bf) r1 = r10\l\
+ |   11: (07) r1 += -16\l\
+ |   12: (b7) r2 = 16\l\
+ |   13: (85) call bpf_get_current_comm#99520\l\
+ |   14: (18) r2 = map[id:228]\l\
+ |   15: BUG_ld_00\l\
+ |   16: (bf) r4 = r10\l\
+ |   17: (07) r4 += -32\l\
+ |   18: (bf) r1 = r6\l\
+ |   19: (18) r3 = 0xffffffff\l\
+ |   20: BUG_ld_00\l\
+ |   21: (b7) r5 = 32\l\
+ |   22: (85) call bpf_perf_event_output#-55024\l\
+ |   23: (b7) r0 = 0\l\
+ |   24: (95) exit\l\
+}"];
+
+	fn_0_bb_1 [shape=Mdiamond,style=filled,label="EXIT"];
+
+	fn_0_bb_0:s -> fn_0_bb_2:n [style="solid,bold", color=black, weight=10, constraint=true];
+	fn_0_bb_2:s -> fn_0_bb_1:n [style="solid,bold", color=black, weight=10, constraint=true];
+	fn_0_bb_0:s -> fn_0_bb_1:n [style="invis", constraint=true];
+}
+}
